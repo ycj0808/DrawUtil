@@ -1,4 +1,4 @@
-package com.example.drawdemo.utils;
+ï»¿package com.example.drawdemo.utils;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -118,11 +118,11 @@ public class BitMapUtils {
 			int displayHeight) {
 		BitmapFactory.Options op = new BitmapFactory.Options();
 		op.inJustDecodeBounds = true;
-		Bitmap bmp = BitmapFactory.decodeFile(path, op); // »ñÈ¡³ß´çĞÅÏ¢
-		// »ñÈ¡±ÈÀı´óĞ¡
+		Bitmap bmp = BitmapFactory.decodeFile(path, op); // è·å–å°ºå¯¸ä¿¡æ¯
+		// è·å–æ¯”ä¾‹å¤§å°
 		int wRatio = (int) Math.ceil(op.outWidth / (float) displayWidth);
 		int hRatio = (int) Math.ceil(op.outHeight / (float) displayHeight);
-		// Èç¹û³¬³öÖ¸¶¨´óĞ¡£¬ÔòËõĞ¡ÏàÓ¦µÄ±ÈÀı
+		// å¦‚æœè¶…å‡ºæŒ‡å®šå¤§å°ï¼Œåˆ™ç¼©å°ç›¸åº”çš„æ¯”ä¾‹
 		if (wRatio > 1 && hRatio > 1) {
 			if (wRatio > hRatio) {
 				op.inSampleSize = wRatio;
@@ -139,7 +139,7 @@ public class BitMapUtils {
 	public static Bitmap decodeBitmap(String path, int maxImageSize) {
 		BitmapFactory.Options op = new BitmapFactory.Options();
 		op.inJustDecodeBounds = true;
-		Bitmap bmp = BitmapFactory.decodeFile(path, op); // »ñÈ¡³ß´çĞÅÏ¢
+		Bitmap bmp = BitmapFactory.decodeFile(path, op); // è·å–å°ºå¯¸ä¿¡æ¯
 		int scale = 1;
 		if (op.outWidth > maxImageSize || op.outHeight > maxImageSize) {
 			scale = (int) Math.pow(
@@ -164,7 +164,7 @@ public class BitMapUtils {
 					.getColumnIndexOrThrow(MediaStore.Images.Media.DATA));
 			cursor.close();
 			// return BitmapUtils.decodeBitmap(path, 260, 260);
-			return BitMapUtils.decodeBitmap(path, 220); // ¿´¿´ºÍÉÏÃæÕâÖÖ·½Ê½µÄ²î±ğ,¿´ÁË£¬²î²»¶à
+			return BitMapUtils.decodeBitmap(path, 220); // çœ‹çœ‹å’Œä¸Šé¢è¿™ç§æ–¹å¼çš„å·®åˆ«,çœ‹äº†ï¼Œå·®ä¸å¤š
 		} else {
 			cursor.close();
 			return null;

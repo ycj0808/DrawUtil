@@ -1,4 +1,4 @@
-package com.example.drawdemo.painttools;
+ï»¿package com.example.drawdemo.painttools;
 
 import com.example.drawdemo.interfaces.Shapable;
 import com.example.drawdemo.interfaces.ShapesInterface;
@@ -11,7 +11,7 @@ import android.graphics.Paint.Style;
 import android.graphics.Path;
 
 /**
- * ³éÏóPenÀà£¬Ìá¹©PenµÄÄ¬ÈÏÊµÏÖ
+ * æŠ½è±¡Penç±»ï¼Œæä¾›Pençš„é»˜è®¤å®ç°
  */
 abstract public class PenAbstract implements ToolInterface, Shapable {
 
@@ -43,21 +43,21 @@ abstract public class PenAbstract implements ToolInterface, Shapable {
 	}
 
 	/**
-	 * ÉèÖÃPenµÄ´óĞ¡
+	 * è®¾ç½®Pençš„å¤§å°
 	 */
 	public void setPenSize(int width) {
 		mPenPaint.setStrokeWidth(width);
 	}
 
 	/**
-	 * ÉèÖÃPenColor
+	 * è®¾ç½®PenColor
 	 */
 	public void setPenColor(int color) {
 		mPenPaint.setColor(color);
 	}
 
 	/**
-	 * ±£´æÆğÊ¼Î»ÖÃ
+	 * ä¿å­˜èµ·å§‹ä½ç½®
 	 */
 	private void saveDownPoint(float x, float y) {
 		mFirstCurrentPosition.firstX = x;
@@ -74,16 +74,16 @@ abstract public class PenAbstract implements ToolInterface, Shapable {
 
 	public void touchDown(float x, float y) {
 		saveDownPoint(x, y);
-		// Ã¿´ÎdownµÄÊ±ºò¶¼Òª½«pathÇå¿Õ£¬²¢ÇÒÖØĞÂÉèÖÃÆğµã
+		// æ¯æ¬¡downçš„æ—¶å€™éƒ½è¦å°†pathæ¸…ç©ºï¼Œå¹¶ä¸”é‡æ–°è®¾ç½®èµ·ç‚¹
 		mPath.reset();
-		// ÖØĞÂÉèÖÃÆğµã
+		// é‡æ–°è®¾ç½®èµ·ç‚¹
 		mPath.moveTo(x, y);
 		savePoint(x, y);
 	}
 
 	public void touchMove(float x, float y) {
 		if (isMoved(x, y)) {
-			// ±´Èü¶ûÇúÏß
+			// è´èµ›å°”æ›²çº¿
 			drawBeziercurve(x, y);
 			savePoint(x, y);
 
@@ -100,7 +100,7 @@ abstract public class PenAbstract implements ToolInterface, Shapable {
 	}
 
 	/**
-	 * ½«µ±Ç°µÄµã±£´æÆğÀ´
+	 * å°†å½“å‰çš„ç‚¹ä¿å­˜èµ·æ¥
 	 */
 	private void savePoint(float x, float y) {
 		mCurrentX = x;

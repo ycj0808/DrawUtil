@@ -1,4 +1,4 @@
-package com.example.drawdemo.shapes;
+ï»¿package com.example.drawdemo.shapes;
 
 import com.example.drawdemo.interfaces.Shapable;
 import com.example.drawdemo.interfaces.ShapesInterface;
@@ -9,7 +9,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 
 /**
- * Ìá¹©shape×ÓÀàµÄÄ¬ÈÏÊµÏÖ
+ * æä¾›shapeå­ç±»çš„é»˜è®¤å®ç°
 */
 public class ShapeAbstract implements ShapesInterface {
 

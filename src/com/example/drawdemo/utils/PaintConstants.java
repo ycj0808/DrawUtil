@@ -1,4 +1,4 @@
-package com.example.drawdemo.utils;
+﻿package com.example.drawdemo.utils;
 
 import android.graphics.Color;
 

@@ -1,4 +1,4 @@
-package com.example.drawdemo.painttools;
+ï»¿package com.example.drawdemo.painttools;
 
 import com.example.drawdemo.interfaces.ToolInterface;
 
@@ -10,7 +10,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 
 public class Eraser implements ToolInterface {
-	// Ö»ÓĞµÈÒÆ¶¯¾àÀë³¬¹ıÕâ¸öÖµ²Å»áÒÆ¶¯
+	// åªæœ‰ç­‰ç§»åŠ¨è·ç¦»è¶…è¿‡è¿™ä¸ªå€¼æ‰ä¼šç§»åŠ¨
 	private static final float TOUCH_TOLERANCE = 4.0f;
 
 	private float mCurrentX = 0.0f;
@@ -27,7 +27,7 @@ public class Eraser implements ToolInterface {
 	}
 
 	private void setUp() {
-		// color²¢²»ÖĞ»¹Òª£¬»ìÉ«µÄÄ£Ê½¾ö¶¨ÁËeraser
+		// colorå¹¶ä¸ä¸­è¿˜è¦ï¼Œæ··è‰²çš„æ¨¡å¼å†³å®šäº†eraser
 		mEraserPaint.setColor(Color.BLACK);
 		mEraserPaint.setDither(true);
 		mEraserPaint.setAntiAlias(true);
@@ -69,7 +69,7 @@ public class Eraser implements ToolInterface {
 		return mHasDraw;
 	}
 
-	// ÅĞ¶ÏÊÇ·ñÒÆ¶¯
+	// åˆ¤æ–­æ˜¯å¦ç§»åŠ¨
 	private boolean isMoved(float x, float y) {
 		float dx = Math.abs(x - mCurrentX);
 		float dy = Math.abs(y - mCurrentX);
@@ -77,7 +77,7 @@ public class Eraser implements ToolInterface {
 		return isMoved;
 	}
 
-	// »­³ö±´Èû¶ûÇúÏß
+	// ç”»å‡ºè´å¡å°”æ›²çº¿
 	private void drawBeziercurve(float x, float y) {
 		mPath.quadTo(mCurrentX, mCurrentY, (x + mCurrentX) / 2,
 				(y + mCurrentY) / 2);
@@ -86,6 +86,6 @@ public class Eraser implements ToolInterface {
 
 	@Override
 	public String toString() {
-		return "eraser£º" + " size is"+ eraserSize;
+		return "eraserï¼š" + " size is"+ eraserSize;
 	}
 }

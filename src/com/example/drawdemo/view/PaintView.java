@@ -1,4 +1,4 @@
-package com.example.drawdemo.view;
+ï»¿package com.example.drawdemo.view;
 
 import java.util.ArrayList;
 
@@ -41,7 +41,7 @@ public class PaintView extends View implements UndoCommand {
 	private Canvas mCanvas = null;
 	private ToolInterface mCurrentPainter = null;
 
-	/* Bitmap µÄÅäÖÃ */
+	/* Bitmap çš„é…ç½® */
 	private Bitmap mBitmap = null;
 	private Bitmap mOrgBitMap = null;
 
@@ -49,7 +49,7 @@ public class PaintView extends View implements UndoCommand {
 	private int mBitmapHeight = 0;
 
 	private int mBackGroundColor = DEFAULT.BACKGROUND_COLOR;
-	/* paint µÄÅäÖÃ */
+	/* paint çš„é…ç½® */
 	private Paint mBitmapPaint = null;
 
 	private paintPadUndoStack mUndoStack = null;
@@ -66,7 +66,7 @@ public class PaintView extends View implements UndoCommand {
 	private ShapesInterface mCurrentShape = null;
 	private Paint.Style mStyle = Paint.Style.STROKE;
 
-	/* ÆäËû µÄÅäÖÃ */
+	/* å…¶ä»– çš„é…ç½® */
 	private boolean isTouchUp = false;
 	private int mStackedSize = UNDO_STACK_SIZE;
 
@@ -85,7 +85,7 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * ³õÊ¼»¯
+	 * åˆå§‹åŒ–
 	 */
 	private void init() {
 		mCanvas = new Canvas();
@@ -97,7 +97,7 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * »Øµ÷Ö÷º¯ÊıµÄonHasDrawº¯Êı
+	 * å›è°ƒä¸»å‡½æ•°çš„onHasDrawå‡½æ•°
 	 */
 	public void setCallBack(PaintViewCallBack callBack) {
 		mCallBack = callBack;
@@ -128,12 +128,12 @@ public class PaintView extends View implements UndoCommand {
 			if (mCurrentPainter.hasDraw()) {
 				mUndoStack.push(mCurrentPainter);
 				if (mCallBack != null) {
-					// ¿ØÖÆundo\redoµÄÏÖÊµ
+					// æ§åˆ¶undo\redoçš„ç°å®
 					mCallBack.onHasDraw();
 				}
 			}
 			mCurrentPainter.touchUp(x, y);
-			// Ö»ÓĞÔÚupµÄÊ±ºò²ÅÔÚbitmapÉÏ»­Í¼£¬×îÖÕÏÔÊ¾ÔÚviewÉÏ
+			// åªæœ‰åœ¨upçš„æ—¶å€™æ‰åœ¨bitmapä¸Šç”»å›¾ï¼Œæœ€ç»ˆæ˜¾ç¤ºåœ¨viewä¸Š
 			mCurrentPainter.draw(mCanvas);
 			invalidate();
 			isTouchUp = true;
@@ -143,7 +143,7 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * ÉèÖÃ¾ßÌåĞÎ×´£¬ĞèÒª×¢ÒâµÄÊÇ¹¹Ôìº¯ÊıÖĞµÄPainter±ØĞëÊÇĞÂÏÊ³öÂ¯µÄ
+	 * è®¾ç½®å…·ä½“å½¢çŠ¶ï¼Œéœ€è¦æ³¨æ„çš„æ˜¯æ„é€ å‡½æ•°ä¸­çš„Painterå¿…é¡»æ˜¯æ–°é²œå‡ºç‚‰çš„
 	 */
 	private void setShape() {
 		if (mCurrentPainter instanceof Shapable) {
@@ -176,12 +176,12 @@ public class PaintView extends View implements UndoCommand {
 	@Override
 	public void onDraw(Canvas cv) {
 		cv.drawColor(mBackGroundColor);
-		// ÔÚÍâ²¿»æÖÆµÄ·½·¨Ö»ÓĞÒ»ÖÖ£¬¾ÍÊÇÏÈÔÚbitmapÉÏ»æÖÆ£¬È»ºó¼ÓÔØµ½cv
+		// åœ¨å¤–éƒ¨ç»˜åˆ¶çš„æ–¹æ³•åªæœ‰ä¸€ç§ï¼Œå°±æ˜¯å…ˆåœ¨bitmapä¸Šç»˜åˆ¶ï¼Œç„¶ååŠ è½½åˆ°cv
 		cv.drawBitmap(mBitmap, 0, 0, mBitmapPaint);
-		// TouchUpÊ¹ÓÃBitMapµÄcanvas½øĞĞ»æÖÆ£¬Ò²¾Í²»ÓÃÔÙViewÉÏ»æÖÆÁË
+		// TouchUpä½¿ç”¨BitMapçš„canvasè¿›è¡Œç»˜åˆ¶ï¼Œä¹Ÿå°±ä¸ç”¨å†Viewä¸Šç»˜åˆ¶äº†
 		if (!isTouchUp) {
-			// Æ½Ê±¶¼Ö»ÔÚviewµÄcvÉÏÁÙÊ±»æÖÆ
-			// earaser²»ÄÜÔÙcvÉÏ»æÖÆ£¬ĞèÒªÖ±½Ó»æÖÆÔÚbitmapÉÏ
+			// å¹³æ—¶éƒ½åªåœ¨viewçš„cvä¸Šä¸´æ—¶ç»˜åˆ¶
+			// earaserä¸èƒ½å†cvä¸Šç»˜åˆ¶ï¼Œéœ€è¦ç›´æ¥ç»˜åˆ¶åœ¨bitmapä¸Š
 			if (mPaintType != PEN_TYPE.ERASER) {
 				mCurrentPainter.draw(cv);
 			}
@@ -189,7 +189,7 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * ´´½¨Ò»¸öĞÂµÄ»­±Ê
+	 * åˆ›å»ºä¸€ä¸ªæ–°çš„ç”»ç¬”
 	 */
 	void creatNewPen() {
 		ToolInterface tool = null;
@@ -214,7 +214,7 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * µ±´ËÊÂ¼ş·¢ÉúÊ±£¬´´½¨Bitmap²¢setCanvas
+	 * å½“æ­¤äº‹ä»¶å‘ç”Ÿæ—¶ï¼Œåˆ›å»ºBitmapå¹¶setCanvas
 	 */
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -228,7 +228,7 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * ´´½¨»­²¼ÉÏµÄ±³¾°Í¼Æ¬£¬Í¬Ê±ÁôÓĞ±¸·İ
+	 * åˆ›å»ºç”»å¸ƒä¸Šçš„èƒŒæ™¯å›¾ç‰‡ï¼ŒåŒæ—¶ç•™æœ‰å¤‡ä»½
 	 */
 	public void setForeBitMap(Bitmap bitmap) {
 		if (bitmap != null) {
@@ -245,7 +245,7 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * »ØÊÕÔ­Ê¼Í¼Æ¬
+	 * å›æ”¶åŸå§‹å›¾ç‰‡
 	 */
 	private void recycleOrgBitmap() {
 		if (mOrgBitMap != null && !mOrgBitMap.isRecycled()) {
@@ -255,7 +255,7 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * »ØÊÕÍ¼Æ¬
+	 * å›æ”¶å›¾ç‰‡
 	 */
 	private void recycleMBitmap() {
 		if (mBitmap != null && !mBitmap.isRecycled()) {
@@ -265,10 +265,10 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * µÃµ½µ±Ç°viewµÄ½ØÍ¼
+	 * å¾—åˆ°å½“å‰viewçš„æˆªå›¾
 	 */
 	public Bitmap getSnapShoot() {
-		// »ñµÃµ±Ç°µÄviewµÄÍ¼Æ¬
+		// è·å¾—å½“å‰çš„viewçš„å›¾ç‰‡
 		setDrawingCacheEnabled(true);
 		buildDrawingCache(true);
 		Bitmap bitmap = getDrawingCache(true);
@@ -277,13 +277,13 @@ public class PaintView extends View implements UndoCommand {
 			bitmap.recycle();
 			bitmap = null;
 		}
-		// ½«»º´æÇåÀíµô
+		// å°†ç¼“å­˜æ¸…ç†æ‰
 		setDrawingCacheEnabled(false);
 		return bmp;
 	}
 
 	/**
-	 * Çå¿ÕÆÁÄ»
+	 * æ¸…ç©ºå±å¹•
 	 */
 	public void clearAll() {
 		recycleMBitmap();
@@ -294,7 +294,7 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * ´´½¨bitMapÍ¬Ê±»ñµÃÆäcanvas
+	 * åˆ›å»ºbitMapåŒæ—¶è·å¾—å…¶canvas
 	 */
 	private void creatCanvasBitmap(int w, int h) {
 		mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
@@ -302,7 +302,7 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * ¸Ä±äµ±Ç°»­±ÊµÄÀàĞÍ
+	 * æ”¹å˜å½“å‰ç”»ç¬”çš„ç±»å‹
 	 */
 	public void setCurrentPainterType(int type) {
 		switch (type) {
@@ -319,7 +319,7 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * ¸Ä±äµ±Ç°µÄShap
+	 * æ”¹å˜å½“å‰çš„Shap
 	 */
 	public void setCurrentShapType(int type) {
 		switch (type) {
@@ -338,35 +338,35 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * µÃµ½µ±Ç°»­±ÊµÄÀàĞÍ
+	 * å¾—åˆ°å½“å‰ç”»ç¬”çš„ç±»å‹
 	 */
 	public int getCurrentPainter() {
 		return mPaintType;
 	}
 
 	/**
-	 * ¸Ä±äµ±Ç°»­±ÊµÄ´óĞ¡
+	 * æ”¹å˜å½“å‰ç”»ç¬”çš„å¤§å°
 	 */
 	public void setPenSize(int size) {
 		mPenSize = size;
 	}
 
 	/**
-	 * ¸Ä±äµ±Ç°EraserµÄ´óĞ¡
+	 * æ”¹å˜å½“å‰Eraserçš„å¤§å°
 	 */
 	public void setEraserSize(int size) {
 		mEraserSize = size;
 	}
 
 	/**
-	 * µÃµ½µ±Ç°»­±ÊµÄ´óĞ¡
+	 * å¾—åˆ°å½“å‰ç”»ç¬”çš„å¤§å°
 	 */
 	public int getPenSize() {
 		return mPenSize;
 	}
 
 	/**
-	 * ÖØÖÃ×´Ì¬
+	 * é‡ç½®çŠ¶æ€
 	 */
 	public void resetState() {
 		setCurrentPainterType(PEN_TYPE.PLAIN_PEN);
@@ -376,7 +376,7 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * ¸ü¸Ä±³¾°ÑÕÉ«
+	 * æ›´æ”¹èƒŒæ™¯é¢œè‰²
 	 */
 	public void setBackGroundColor(int color) {
 		mBackGroundColor = color;
@@ -384,28 +384,28 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/**
-	 * µÃµ½±³¾°ÑÕÉ«
+	 * å¾—åˆ°èƒŒæ™¯é¢œè‰²
 	 */
 	public int getBackGroundColor() {
 		return mBackGroundColor;
 	}
 
 	/**
-	 * ¸Ä±ä»­±ÊµÄÑÕÉ«£¬ÔÚ´´½¨ĞÂ±ÊµÄÊ±ºò¾ÍÄÜÊ¹ÓÃÁË
+	 * æ”¹å˜ç”»ç¬”çš„é¢œè‰²ï¼Œåœ¨åˆ›å»ºæ–°ç¬”çš„æ—¶å€™å°±èƒ½ä½¿ç”¨äº†
 	 */
 	public void setPenColor(int color) {
 		mPenColor = color;
 	}
 
 	/**
-	 * µÃµ½penColor
+	 * å¾—åˆ°penColor
 	 */
 	public int getPenColor() {
 		return mPenColor;
 	}
 
 	/**
-	 * ´´½¨ÁÙÊ±±³¾°£¬Ã»ÓĞ±¸·İ
+	 * åˆ›å»ºä¸´æ—¶èƒŒæ™¯ï¼Œæ²¡æœ‰å¤‡ä»½
 	 */
 	protected void setTempForeBitmap(Bitmap tempForeBitmap) {
 		if (null != tempForeBitmap) {
@@ -452,8 +452,8 @@ public class PaintView extends View implements UndoCommand {
 	}
 
 	/*
-	 * ===================================ÄÚ²¿Àà¿ªÊ¼=================================
-	 * ÄÚ²¿Àà£¬¸ºÔğundo¡¢redo
+	 * ===================================å†…éƒ¨ç±»å¼€å§‹=================================
+	 * å†…éƒ¨ç±»ï¼Œè´Ÿè´£undoã€redo
 	 */
 	public class paintPadUndoStack {
 		private int m_stackSize = 0;
@@ -468,15 +468,15 @@ public class PaintView extends View implements UndoCommand {
 		}
 
 		/**
-		 * ½«painter´æÈëÕ»ÖĞ
+		 * å°†painterå­˜å…¥æ ˆä¸­
 		 */
 		public void push(ToolInterface penTool) {
 			if (null != penTool) {
-				// Èç¹ûundoÒÑ¾­´æÂú
+				// å¦‚æœundoå·²ç»å­˜æ»¡
 				if (mUndoStack.size() == m_stackSize && m_stackSize > 0) {
-					// µÃµ½×îÔ¶µÄ»­±Ê
+					// å¾—åˆ°æœ€è¿œçš„ç”»ç¬”
 					ToolInterface removedTool = mUndoStack.get(0);
-					// ËùÓĞµÄ±Ê¼£Ôö¼Ó
+					// æ‰€æœ‰çš„ç¬”è¿¹å¢åŠ 
 					mOldActionStack.add(removedTool);
 					mUndoStack.remove(0);
 				}
@@ -486,7 +486,7 @@ public class PaintView extends View implements UndoCommand {
 		}
 
 		/**
-		 * Çå¿ÕËùÓĞ
+		 * æ¸…ç©ºæ‰€æœ‰
 		 */
 		public void clearAll() {
 			mRedoStack.clear();
@@ -506,10 +506,10 @@ public class PaintView extends View implements UndoCommand {
 
 				if (null != mOrgBitMap) {
 					// Set the temporary fore bitmap to canvas.
-					// µ±ÔØÈëÎÄ¼şÊ±±£´æÁËÒ»·İ,ÏÖÔÚÒªÖØĞÂ»æÖÆ³öÀ´
+					// å½“è½½å…¥æ–‡ä»¶æ—¶ä¿å­˜äº†ä¸€ä»½,ç°åœ¨è¦é‡æ–°ç»˜åˆ¶å‡ºæ¥
 					mPaintView.setTempForeBitmap(mPaintView.mOrgBitMap);
 				} else {
-					// Èç¹û±³¾°²»´æÔÚ£¬ÔòÖØĞÂ´´½¨Ò»·İ±³¾°
+					// å¦‚æœèƒŒæ™¯ä¸å­˜åœ¨ï¼Œåˆ™é‡æ–°åˆ›å»ºä¸€ä»½èƒŒæ™¯
 					mPaintView.creatCanvasBitmap(mPaintView.mBitmapWidth,
 							mPaintView.mBitmapHeight);
 				}
@@ -549,12 +549,12 @@ public class PaintView extends View implements UndoCommand {
 				}
 
 				Canvas canvas = mPaintView.mCanvas;
-				// ËùÓĞÒÔÇ°µÄ±Ê¼£¶¼´æ·ÅÔÚremovedStackÖĞ
+				// æ‰€æœ‰ä»¥å‰çš„ç¬”è¿¹éƒ½å­˜æ”¾åœ¨removedStackä¸­
 				// First draw the removed tools from undo stack.
 				for (ToolInterface sketchPadTool : mOldActionStack) {
 					sketchPadTool.draw(canvas);
 				}
-				// ²»¹ÜÔõÑù¶¼ÊÇ´Ó³·ÏúÀïÃæ»æÖÆ£¬ÖØ×öÖ»ÊÇÔİÊ±µÄ´æ´¢
+				// ä¸ç®¡æ€æ ·éƒ½æ˜¯ä»æ’¤é”€é‡Œé¢ç»˜åˆ¶ï¼Œé‡åšåªæ˜¯æš‚æ—¶çš„å­˜å‚¨
 				for (ToolInterface sketchPadTool : mUndoStack) {
 					sketchPadTool.draw(canvas);
 				}
@@ -580,6 +580,6 @@ public class PaintView extends View implements UndoCommand {
 			return "canUndo" + canUndo();
 		}
 	}
-	/* ==================================ÄÚ²¿Àà½áÊø ================================= */
+	/* ==================================å†…éƒ¨ç±»ç»“æŸ ================================= */
 
 }

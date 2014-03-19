@@ -1,10 +1,10 @@
-package com.example.drawdemo.painttools;
+ï»¿package com.example.drawdemo.painttools;
 
 import com.example.drawdemo.interfaces.ToolInterface;
 
 import android.graphics.Paint;
 
-//ÆÕÍ¨»­±Ê
+//æ™®é€šç”»ç¬”
 public class PlainPen extends PenAbstract implements ToolInterface {
 	public PlainPen(int size, int penColor) {
 		this(size,penColor,Paint.Style.STROKE);

@@ -1,4 +1,4 @@
-package com.example.drawdemo;
+ï»¿package com.example.drawdemo;
 
 
 import com.example.drawdemo.interfaces.PaintViewCallBack;
@@ -23,22 +23,22 @@ public class MainActivity extends Activity {
 
 
 	/**
-	 * ³õÊ¼»¯paintViewµÄ»Øµ÷º¯Êı
+	 * åˆå§‹åŒ–paintViewçš„å›è°ƒå‡½æ•°
 	 */
 	private void initCallBack() {
 		mPaintView.setCallBack(new PaintViewCallBack() {
-			// µ±»­ÁËÖ®ºó¶ÔButton½øĞĞ¸üĞÂ
+			// å½“ç”»äº†ä¹‹åå¯¹Buttonè¿›è¡Œæ›´æ–°
 			public void onHasDraw() {
 			}
 
-			// µ±µã»÷Ö®ºóÈÃ¸÷¸öµ¯³öµÄ´°¿Ú¶¼ÏûÊ§
+			// å½“ç‚¹å‡»ä¹‹åè®©å„ä¸ªå¼¹å‡ºçš„çª—å£éƒ½æ¶ˆå¤±
 			public void onTouchDown() {
 			}
 		});
 	}
 	
 	/**
-	 * ³õÊ¼»¯»­»­ËùÓÃµÄpaintView
+	 * åˆå§‹åŒ–ç”»ç”»æ‰€ç”¨çš„paintView
 	 */
 	private void initPaintView() {
 		mPaintView = new PaintView(this);

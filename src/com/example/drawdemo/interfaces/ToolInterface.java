@@ -1,9 +1,9 @@
-package com.example.drawdemo.interfaces;
+锘縫ackage com.example.drawdemo.interfaces;
 
 
 import android.graphics.Canvas;
 
-//所有画笔都应当实现这个接口
+//鎵�鏈夌敾绗旈兘搴斿綋瀹炵幇杩欎釜鎺ュ彛
 public interface ToolInterface {
 	public void draw(Canvas canvas);
 
